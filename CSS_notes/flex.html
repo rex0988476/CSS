@@ -1,0 +1,51 @@
+<!--flex筆記-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"></meta>
+        <title>flex筆記</title>
+
+        <link rel="stylesheet" href="flex.css"/>
+    </head>
+    <body>
+        <!--flex-->
+        <!--預設顯示方式(主軸)為由左到右, 由上至下(row)-->
+        <!--滿版:在3個class中分別使用 flex:[數字] 代表將橫排分為[數字加總]段, 並且拿走其中的[數字]份-->
+        <!--排序:在3個class中分別使用 order:[數字] 代表根據order由小到大由左至右排列, 不寫預設為0-->
+        <!--換行:在外層中使用 flex-wrap:wrap; 代表會依據空間換行, 不會擠壓空間-->
+        <!--排列方式(主軸):在外層中使用 flex-direction: column; 代表先以由上到下排列, 再以由左至右排列,-->
+        <!-- 有可能失效, 內層預設style刪掉重寫或許有用,-->
+        <!-- column-reverse則為由下至上排列, row-reverse以此類推,-->
+        <!-- 內層使用的order:[數字]、flex:[數字]等會依據排列方式(主軸)做改變-->
+
+        <div class="container"><!--flex要設定在外層(這層)-->
+            <div class="box-1">區塊1</div>
+            <div class="box-2">區塊2</div>
+            <div class="box-3">區塊3</div>
+            <div class="box-1">區塊4</div>
+            <div class="box-2">區塊5</div>
+            <div class="box-3">區塊6</div>
+            <div class="box-1">區塊7</div>
+            <div class="box-2">區塊8</div>
+            <div class="box-3">區塊9</div>
+        </div>
+        <br/>
+
+        <!--主軸置中:在外層中使用 justify-content: center; 代表依據目前排列方式(主軸)置中-->
+        <!--主軸置尾:在外層中使用 justify-content: flex-end; 代表依據目前排列方式(主軸)置尾-->
+        <!--主軸置首:在外層中使用 justify-content: flex-start; 代表依據目前排列方式(主軸)置首-->
+        <!--剩餘空間平均分配(區塊左右):在外層中使用 justify-content: space-around; 代表將主軸剩餘空間平均分配置區塊(內層標籤?)左右-->
+        <!--剩餘空間平均分配(首尾貼邊區塊中):在外層中使用 justify-content: space-between; 代表將首尾兩個區塊(內層標籤?)貼至最邊邊, 主軸剩餘空間平均分配置剩餘區塊(內層標籤?)中-->
+        <!--剩餘空間平均分配(等大小):在外層中使用 justify-content: space-evenly; 代表不貼邊直接將主軸剩餘空間平均分配置剩餘區塊(內層標籤?)中-->
+        
+        <!--align-items & align-content, 都為次軸, 但當有換行時會使用-content而不是-item,-->
+        <!-- 其餘同justify-content-->
+        <div class="container2">
+            <div class="box-4">區塊10</div>
+            <div class="box-5">區塊11</div>
+            <div class="box-6">區塊12</div>
+        </div>
+
+        <a href="firstCss.html">home</a>
+    </body>
+</html>

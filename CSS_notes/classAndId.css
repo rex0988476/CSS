@@ -1,0 +1,13 @@
+.c1{
+    color: white;
+    background-color: black;
+}
+.c2{
+    color: yellow;
+    background-color: blue;
+}
+#id01{
+    background-color: red;
+    opacity: 0.5;
+    color: aqua;
+}

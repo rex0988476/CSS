@@ -1,0 +1,161 @@
+<!--
+css用途為排版及美化
+寫在style裡面
+以[屬性]:[值];表示
+如果內層屬性與外層重複,則內層會覆蓋外層
+網頁中的f12, 左半邊elements顯示html, 右半邊style顯示css
+有些預設值會顯示在右半邊
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"></meta>
+        <title>rex09_的css筆記</title>
+
+        <!--css另一種寫法-->
+        <!--將所有p標籤文字預設為黑色, 背景為白色-->
+        <!--格式為 [標籤名稱]{預設屬性;} -->
+        <style>
+            p{
+                color:black;
+                background-color: white;
+            }
+            h1{
+                color:black;
+                background-color: white;
+            }
+        </style>
+
+        <link rel="stylesheet" href="classAndId.css"/>
+    </head>
+    <body>
+
+        <!--color:[顏色]; //設定文字顏色-->
+        <!--font-size:[數字]px; //設定文字大小 ,px為像素-->
+        <div style="color: red; font-size:20px;">
+            <p>div1開頭(color: red; font-size:20px;)</p>
+            <p style="color: blue;">以藍色覆蓋紅色</p>
+
+            <!--background-color:[顏色]; //設定背景顏色-->
+            <p style="background-color: black; color: white;">黑底白字</p>
+            
+            <!--border:[邊框大小]px [樣式] [顏色]; //設定邊框(solid為實線 ,dashed為虛線)-->
+            <!--max-width:[數字]px; //設定最大寬度-->
+            <!--max-height:[數字]px; //設定最大高度-->
+            <!--width:[數字]px; //設定寬度-->
+            <!--height:[數字]px; //設定高度-->
+            <!--不加則會根據畫面大小作調整-->
+            <p style="border: 1px solid black;max-width: 1000px; height: 50px;">邊框</p>
+            
+            <p>div1結尾</p>
+        </div>
+        <!--color:[顏色]; //設定文字顏色,-->
+        <!--vscode游標放在顏色方塊上可自由調整顏色,-->
+        <!--調整後結果以 rgb(數字,數字,數字) 表示-->
+        <!--也可用 #[6位16進制數] ,-->
+        <!--或 hsl(數字, 數字, 數字) 總共4種表示法-->
+        <p style="color: aqua;">阿夸(aqua)</p>
+        <p style="color: rgb(0, 255, 255);">rgb(0, 255, 255)</p>
+        <p style="color: #00ffff;">#00ffff</p>
+        <p style="color: hsl(180, 100%, 50%);">hsl(180, 100%, 50%)</p>
+        <a href="https://www.w3schools.com/colors/colors_names.asp">可上W3c的CSS color name找尋顏色名稱</a>
+        <br/>
+        <a href="https://www.w3schools.com/colors/colors_picker.asp">或W3c的CSS color picker找尋顏色</a>
+        <!--也可直接搜尋色碼表-->
+
+        <!--空間(padding(內部空間) & margin(外部空間))-->
+        <!--padding布置空間到網頁上, 用網頁f12的style看(方框圖)會比較清楚-->
+        <!--margin幾乎同padding, 但margin可填負數padding不可-->
+        <!--方框圖由外到內依序為:margin,border,padding,文字空間-->
+        <div style="padding: 20px; margin: 20px;">空間</div>
+        <!--padding和margin有-top,-left,-right,-bottom等分支, 可單獨設定其中一邊的空間-->
+        <!--四邊不同值也可直接填入[值]欄位, ex:padding: 2px 3px 4px 5px; 順序為上右下左(順時鐘)-->
+
+        <!--float漂浮, html顯示時有兩層,-->
+        <!-- 文字預設在上層(文字浮於文字標籤上), 其餘如圖片、標籤等在下層-->
+        <!-- 將圖片賦予float屬性代表上浮至跟文字同層,-->
+        <!-- 此時在下層的標籤及上層的文字都會往左上遞補,-->
+        <!-- 而圖片則依據漂浮值(float、right)漂浮在特定位置-->
+        <img src="suichan.jpg" width="250" height="250" style="float:right;"/>
+        <ul style="float: left; background-color: black; color: white;">
+            <li>漂</li>
+            <li>浮</li>
+            <li>列</li>
+            <li>表</li>
+        </ul>
+        <p style="background-color: blue; color: yellow;">往左上遞補的文字</p>
+
+        <!--display, html中, 會換行叫block, 不會叫inline-->
+        <p style="display: inline;">不會換行的p</p>
+        <p style="display: inline;">display為inline</p>
+        <hr/>
+        <span style="display: block;">會換行的span</span>
+        <span style="display: block;">display為block</span>
+
+        <!--position為定位-->
+        <!--fixed值為固定定位, 會將其設定目標獨立出一層, 且固定在視窗中不隨上下拉條移動-->
+        <div style="position: fixed; color: yellow; background-color: blue; width: 200px; height: 20px;">position:fixed;</div>
+        <!--可加入上下左右4個"屬性"調整固定位置 ,代表距離上下左右邊框多遠-->
+        <div style="position: fixed; top: 20px; left: 20; color: rgb(0, 255, 0); background-color: red; width: 300px; height: 20px;">position: fixed; top: 20px; left: 20;</div>
+        <!--relative值為相對定位(相對於原本應該出現的位置去做偏移), 需搭配上下左右4個屬性才能顯現效果, 會蓋過沒設定相對定位的東西, 下面沒設定的東西也不會往上補-->
+        <div style="position: relative; color: yellow; background-color: blue; width: 300px; height: 20px;">position: relative;偏移前</div>
+        <div style="position: relative; left: 40px; color: yellow; background-color: blue; width: 300px; height: 20px;">position: relative;偏移後(left: 50px;)</div>
+
+        <div style="padding: 30px; border: 5px solid red;">
+            <div style="padding: 30px; border: 5px solid red;">
+                <!--absolute值為絕對定位, 獨立一層, 與fixed只差在不會跟網頁一起動,-->
+                <!-- 以及如果外層有position指令的話,-->
+                <!-- 就會根據距離最近有position指令的該層的位置做定位-->
+                <div style="position: absolute; width: 40px; height: 40px; background-color: blue;"></div>
+                
+            </div>
+        </div>
+
+        <!--opacity:[小數(0~1)]; 設定透明度, 0為最透, 1為最不透-->
+        <!--border-radius:[數字]px; 將邊框的四個角變為半徑[數字]的圓弧, 一樣可單獨設, 順序一樣為順時鐘從左上開始共四個角-->
+        <p style="position: relative; top: 65px; left: 15px;">opacity</p>
+        <div style="opacity: 0.5; border-radius: 10px; width: 80px; height: 80px; background-color: blue;"></div>
+        <div style="opacity: 0.5; border-radius: 10px 20px 30px 40px; width: 80px; height: 80px; background-color: blue;">單獨設border-radius</div>
+        
+        <a href="linkCssFromOutside.html">連結到有 html連結外部css的筆記及實作的html 的連結</a>
+
+        <!--class="[任意名字]" //不寫在style內, 在外部或內部(<style>)css中, 使用 .[任意名字]{預設屬性;} 進行類別設定-->
+        <!--可同時有多個類別-->
+        <p class="c1">class1</p>
+        <p class="c1">文字為白色</p>
+        <p class="c1">背景為黑色</p>
+        <p class="c2">class2</p>
+        <p class="c2">文字為黃色</p>
+        <p class="c2">背景為藍色</p>
+        <!--如不同class有相同屬性的不同設定, 一起用時會根據預先設定的撰寫順序來決定被覆蓋的對象, 後覆蓋前-->
+        <p class="c1 c2">class1+class2</p>
+
+        <!--id="" //不寫在style內, 有唯一性, 在外部或內部(<style>)css中, 使用 #[任意名字]{預設屬性;} 進行id設定-->
+        <p id="id01">id01文字</p>
+
+        <!--css選擇器-->
+        <!--預設style一個大括弧可同時套用多個名稱(標籤,class,id可混搭), 以逗號隔開-->
+        <!--要分開套用的話以逗號隔開 ,逐層搜尋則以空白隔開-->
+        <!--預設style名稱處直接寫*代表套用到所有標籤-->
+        <!--預設style名稱處也可寫 [標籤名1] [標籤名2] 代表套用到所有[標籤名1]中的[標籤名2]標籤-->
+        <!--ex: ul li 代表套用到所有ul中的li標籤-->
+        <!--ex: ul a 代表套用到所有ul中的a標籤-->
+        <!--預設style名稱處也可寫 [[屬性名稱]] 代表套用所有有[屬性名稱]屬性的標籤上-->
+        <!--ex: [type] 代表套用到所有有type屬性的標籤上-->
+        <!--預設style名稱處也可寫 [任意(標籤名、[屬性名稱])]:hover 代表鼠標滑過所有有[任意(標籤名、[屬性名稱])]的標籤上時才會做出的反應-->
+        <a href="https://www.w3schools.com/cssref/css_selectors.asp">其他的W3c css選擇器</a>
+        <br/>
+
+        <!--flex //一種顯示方式-->
+        <a href="flex.html">flex筆記</a>
+        <br/>
+
+        <!--animation-->
+        <a href="animation.html">animation筆記</a>
+        <br/>
+
+        <a href="https://www.w3schools.com/css/">W3c css 教學網站</a>
+    
+    </body>
+</html>
+<!---->

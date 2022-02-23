@@ -1,0 +1,36 @@
+/*動畫*/
+@keyframes change-color{ /*@keyframes [動畫名稱]{} //創建動畫*/
+    from {background-color: blue;}/*將背景顏色由藍色*/
+    to {background-color: red;}/*變成紅色*/
+}
+
+@keyframes percent-change-color {/*也可用%數代表時間*/
+
+    4%{background-color: red;}
+    20%{background-color: orange; top: 10px; left: 10px;}/*用top和left做移動*/
+    36%{background-color: yellow; top: 20px; left: 20px;}
+    52%{background-color: green; top: 30px; left: 30px;}
+    68%{background-color: blue; top: 40px; left: 40px;}
+    84%{background-color: indigo; top: 50px; left: 50px;}
+    100%{background-color: purple; top: 60px; left: 60px;}
+}
+
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: gray;
+    position: relative;/*要用top left等屬性做出移動動畫就要先加*/
+}
+
+.box-animation{
+    animation-name: change-color;/*animation-name: [動畫名稱]; //套用動畫*/
+    animation-duration: 5s;/*animation-duration: [時間(秒)]s; //動畫持續時間*/
+    animation-iteration-count: 2;/*animation-iteration-count: [數字]; //要讓動畫跑幾次, 填入infinite代表跑無限次*/
+    animation-delay: 2s;/*animation-delay: [時間(秒)]s; //網頁載入後要延遲多久才開始撥放影片*/
+}
+
+.ranbow:hover{/*用hover讓鼠標過去再顯示動畫*/
+    animation-name: percent-change-color;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
